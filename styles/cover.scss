@@ -1,0 +1,22 @@
+.cover {
+  background: var(--gray-dark) !important;
+  color: var(--white);
+  height: 100vh;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.cover-btn {
+  background-color: var(--white);
+  color: var(--gray-dark);
+}
+
+.cover-heading {
+  font-weight: bold;
+}
+
+.cover-lead {
+  font-size: 1.6em;
+}

@@ -1,0 +1,31 @@
+html {
+  scroll-behavior: smooth;
+}
+
+.btn-lg {
+  font-weight: bold;
+}
+
+.level {
+  align-items: center;
+}
+
+.mt-lg {
+  margin-top: $spacer * 5;
+}
+
+.card-row > div[class*='col-'] {
+  display: flex;
+  flex: 1 0 auto;
+}
+
+.card-row .card {
+  margin-bottom: 1rem;
+  width: 100%;
+}
+
+@include media-breakpoint-up(md) {
+  .max-norm {
+    padding: 0 15vw;
+  }
+}

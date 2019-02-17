@@ -1,0 +1,60 @@
+{
+	"name": "raas",
+	"description": "Rickrolling as a service.",
+	"scripts": {
+		"start": "next start",
+		"build": "next build",
+		"dev": "next dev",
+		"lint": "eslint .",
+		"lint:fix": "eslint --fix .",
+		"export": "next export"
+	},
+	"version": "1.0.0",
+	"main": "pages/index.js",
+	"author": "Felix Mattick",
+	"license": "UNLICENSED",
+	"private": true,
+	"eslintConfig": {
+		"extends": [
+			"eslint:recommended",
+			"plugin:react/recommended"
+		],
+		"settings": {
+			"react": {
+				"version": "detect"
+			}
+		},
+		"rules": {
+			"react/react-in-jsx-scope": "off",
+			"semi": [
+				"error",
+				"never"
+			],
+			"quotes": [
+				"error",
+				"single"
+			]
+		},
+		"parser": "babel-eslint",
+		"env": {
+			"node": true,
+			"browser": true,
+			"es6": true
+		}
+	},
+	"dependencies": {
+		"@zeit/next-sass": "^1.0.1",
+		"bootstrap": "^4.3.1",
+		"next": "^8.0.1",
+		"node-sass": "^4.11.0",
+		"react": "^16.8.2",
+		"react-dom": "^16.8.2",
+		"webpack": "^4.29.4"
+	},
+	"devDependencies": {
+		"babel": "^6.23.0",
+		"babel-eslint": "^10.0.1",
+		"eslint": "^5.14.0",
+		"eslint-plugin-react": "^7.12.4"
+	}
+}

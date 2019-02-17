@@ -1,0 +1,49 @@
+.navbar-absolute {
+  position: absolute;
+  width: 100%;
+}
+
+@keyframes navbar-expand {
+  0% {
+    transform: scaleY(0);
+    height: 0;
+  }
+  100% {
+    transform: scaleY(1);
+    height: auto;
+  }
+}
+
+@keyframes navbar-shrink {
+  0% {
+    transform: scaleY(1);
+    height: auto;
+  }
+  100% {
+    transform: scaleY(0);
+    height: 0;
+  }
+}
+
+@include media-breakpoint-down(xs) {
+  .custom-collapse {
+    transform-origin: top;
+  }
+
+  .custom-collapse:not(.show) {
+    display: block;
+    animation: navbar-shrink 200ms ease-in-out;
+    transform: scaleY(0);
+    height: 0;
+  }
+  
+  .custom-collapse.show {
+    animation: navbar-expand 200ms ease-in-out;
+    height: auto;
+    transform: scaleY(1);
+  }
+
+  .navbar-spacer {
+    display: block;
+  }
+}
