@@ -33,7 +33,7 @@ export default class extends Component {
               </Card>
             </div>
             <div className='col-sm-6 col-md-4'>
-              <Card name='API reference'>
+              <Card name='API reference' href='/docs/api'>
                 A full reference of how to interact with our API correctly. If you're new, we recommend reading the quick start guide first.
               </Card>
             </div>

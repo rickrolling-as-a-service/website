@@ -6,6 +6,7 @@ import Navbar from '../../components/Navbar'
 import YarnOrNPM from '../../components/YarnOrNPM'
 import Code from '../../components/Code'
 import Link from 'next/link'
+import AnchoredHeading from '../../components/AnchoredHeading'
 
 export default class extends Component {
   state = {
@@ -25,7 +26,7 @@ export default class extends Component {
           </p>
         </section>
         <section className='container mt-5'>
-          <h1 className='mb-4'>Install the CLI</h1>
+          <AnchoredHeading>Install the CLI</AnchoredHeading>
           <p>
             Make sure you have a computer running Windows, macOS, or Linux with <a href='https://nodejs.org/en/download/' target='_blank'>Node.js</a> installed before proceeding.
           </p>
@@ -36,7 +37,7 @@ export default class extends Component {
           <Code className='mt-4' code={yarn ? '$ yarn global add @raas/cli' : '$ npm install -g @raas/cli'} />
         </section>
         <section className='container mt-5'>
-          <h1 className='mb-4'>Create a Deployment</h1>
+          <AnchoredHeading>Create a Deployment</AnchoredHeading>
           <p>
             Now you're going to create your first deployment. It's going to be a simple rickroll.
           </p>
@@ -54,7 +55,7 @@ Your deployment is at https://raas.pw/r/I9htyZS8N
           </p>
         </section>
         <section className='container mt-5'>
-          <h1 className='mb-4'>Alias Your Deployment</h1>
+          <AnchoredHeading>Alias Your Deployment</AnchoredHeading>
           <p>
             An alias is used to create a custom readable name for your rickroll. They can also be used for custom domains later on.
           </p>

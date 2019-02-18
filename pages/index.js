@@ -84,8 +84,8 @@ fetch('https://raas.pw/api/deploy', {
             <div className='col-lg-4 col-md-6'>
               <Code code={`
 {
-  id: 'I9htyZS8N',
-  uri: 'https://raas.pw/r/I9htyZS8N'
+  code: 'I9htyZS8N',
+  uri: 'https://raas.pw/d/I9htyZS8N'
 }
               `} />
             </div>
