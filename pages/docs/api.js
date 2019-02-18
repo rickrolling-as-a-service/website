@@ -39,6 +39,9 @@ export default class extends Component {
         </section>
         <section className='container mt-5'>
           <AnchoredHeading>Revoke &amp; Regenerate API Key</AnchoredHeading>
+          <div className='alert alert-warning'>
+            <strong>Warning!</strong> This will cause a programs still using your old API key to stop working.
+          </div>
           <Endpoint
             endpoint='/api/key/regen'
             required={[
