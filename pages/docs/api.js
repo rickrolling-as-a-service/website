@@ -5,6 +5,7 @@ import Footer from '../../components/Footer'
 import Navbar from '../../components/Navbar'
 import Endpoint from '../../components/Endpoint'
 import AnchoredHeading from '../../components/AnchoredHeading'
+import Error from '../../components/Error'
 import Link from 'next/link'
 
 export default class extends Component {
@@ -40,7 +41,7 @@ export default class extends Component {
         <section className='container mt-5'>
           <AnchoredHeading>Revoke &amp; Regenerate API Key</AnchoredHeading>
           <div className='alert alert-warning'>
-            <strong>Warning!</strong> This will cause a programs still using your old API key to stop working.
+            <strong>Warning!</strong> This will cause all programs still using your old API key to stop working.
           </div>
           <Endpoint
             endpoint='/api/key/regen'
@@ -145,6 +146,22 @@ export default class extends Component {
 }
             `}
           />
+        </section>
+        <section className='container mt-5'>
+          <AnchoredHeading>Errors</AnchoredHeading>
+          <p>
+            This section documents all the possible error responses you can get.
+          </p>
+          <Error message='Username or password not specified' code='401' />
+          <Error message='Incorrect password' code='401' />
+          <Error message='User does not exist' code='401' />
+          <Error message='API key not specified' code='401' />
+          <Error message='Meme not found' code='404' />
+          <Error message='Invalid API key' code='401' />
+          <Error message='Code not specified' code='400' />
+          <Error message='Deployment not found' code='404' />
+          <Error message='You are not the owner of that deployment' code='403' />
+          <Error message='We messed up' code='500' />
         </section>
         <section className='container mt-5'>
           <Link href='/docs'>
