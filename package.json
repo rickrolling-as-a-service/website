@@ -50,6 +50,7 @@
 		"express": "^4.16.4",
 		"mongoose": "^5.4.13",
 		"next": "^8.0.1",
+		"node-fetch": "^2.3.0",
 		"node-sass": "^4.11.0",
 		"react": "^16.8.2",
 		"react-dom": "^16.8.2",

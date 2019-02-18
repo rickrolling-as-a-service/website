@@ -4,10 +4,12 @@
   "alias": [ "raas" ],
   "builds": [
     { "src": "next.config.js", "use": "@now/next" },
-    { "src": "api.js", "use": "@now/node-server" }
+    { "src": "api.js", "use": "@now/node-server" },
+    { "src": "api/getters/*.js", "use": "@now/node" }
   ],
   "routes": [
-    { "src": "/api/(.*)", "dest": "/api.js" }
+    { "src": "/api/(.*)", "dest": "/api.js" },
+    { "src": "/d/(?<code>[^/]*)", "dest": "/api/getters/deployment.js?code=$code" }
   ],
   "env": {
     "MONGODB": "@raas-mongodb"
