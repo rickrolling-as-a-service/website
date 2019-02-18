@@ -14,7 +14,7 @@
 	"main": "pages/index.js",
 	"author": "Felix Mattick",
 	"license": "UNLICENSED",
-	"private": true,
+	"private": false,
 	"eslintConfig": {
 		"extends": [
 			"eslint:recommended",
