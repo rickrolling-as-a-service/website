@@ -1,6 +1,6 @@
 # RaaS
 
-Rickrolling as a service.
+Rickrolling as a service. This is our website and API.
 
 ## Development
 
