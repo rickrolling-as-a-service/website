@@ -3,6 +3,13 @@
   "version": 2,
   "alias": [ "raas" ],
   "builds": [
-    { "src": "next.config.js", "use": "@now/next" }
-  ]
+    { "src": "next.config.js", "use": "@now/next" },
+    { "src": "api.js", "use": "@now/node-server" }
+  ],
+  "routes": [
+    { "src": "/api/(.*)", "dest": "/api.js" }
+  ],
+  "env": {
+    "MONGODB": "@raas-mongodb"
+  }
 }

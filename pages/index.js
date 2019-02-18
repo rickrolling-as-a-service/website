@@ -71,12 +71,10 @@ Your deployment is at https://raas.pw/r/I9htyZS8N
           <div className='row mt-4'>
             <div className='col-lg-4 offset-lg-2 col-md-6'>
               <Code code={`
-fetch('https://raas.pw/api', {
+fetch('https://raas.pw/api/deploy', {
   method: 'POST',
-  headers: {
-    Authorization: 'Api-key xxx'
-  },
   body: JSON.stringify({
+    key: 'xxx',
     action: 'create',
     memeIndex: 1
   })
@@ -86,7 +84,6 @@ fetch('https://raas.pw/api', {
             <div className='col-lg-4 col-md-6'>
               <Code code={`
 {
-  success: true,
   id: 'I9htyZS8N',
   uri: 'https://raas.pw/r/I9htyZS8N'
 }
