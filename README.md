@@ -1,10 +1,10 @@
 # RaaS
 
-Rickrolling as a service.
+Rickrolling as a service. This is our website and API.
 
 ## Development
 
-To run this during development, just run `yarn dev`. To lint you code and attempt to fix some problems, run `yarn lint:fix`. If you just want to lint it, only run `yarn lint`.
+To run this during development, just run `yarn dev`. To lint your code and attempt to fix some problems, run `yarn lint:fix`. If you just want to lint it, only run `yarn lint`.
 
 ## Production
 
