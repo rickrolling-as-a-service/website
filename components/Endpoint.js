@@ -10,7 +10,7 @@ export default ({ endpoint, method, required, optional, response }) => (
         Required params:
         <ul className='mb-0'>
           {required.map(({ name, type }) => (
-            <li>{name}: <code>{type}</code></li>
+            <li key={name}>{name}: <code>{type}</code></li>
           ))}
         </ul>
       </div>
@@ -20,7 +20,7 @@ export default ({ endpoint, method, required, optional, response }) => (
         Optional params:
         <ul className='mb-0'>
           {optional.map(({ name, type }) => (
-            <li>{name}: <code>{type}</code></li>
+            <li key={name}>{name}: <code>{type}</code></li>
           ))}
         </ul>
       </div>
