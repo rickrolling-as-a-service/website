@@ -9,7 +9,8 @@
   ],
   "routes": [
     { "src": "/api/(.*)", "dest": "/api.js" },
-    { "src": "/d/(?<code>[^/]*)", "dest": "/api/getters/deployment.js?code=$code" }
+    { "src": "/d/(?<code>[^/]*)", "dest": "/api/getters/deployment.js?code=$code" },
+    { "src": "/a/(?<alias>[^/]*)", "dest": "/api/getters/alias.js?alias=$alias" }
   ],
   "env": {
     "MONGODB": "@raas-mongodb"
