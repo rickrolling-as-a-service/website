@@ -13,13 +13,13 @@ module.exports = async (req, res) => {
       return res.end('No alias specified')
     }
 
-    const alias = await Alias.findOne({ alias })
-    if (!alias) {
+    const existingAlias = await Alias.findOne({ alias })
+    if (!existingAlias) {
       res.statusCode = 404
       res.setHeader('Content-Type', 'text/plain')
       return res.end('Alias not found')
     }
-    const { code } = alias
+    const { code } = existingAlias
 
     const deployment = await Deployment.findOne({ code })
     if (!deployment) {
