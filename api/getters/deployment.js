@@ -23,7 +23,7 @@ module.exports = async (req, res) => {
     await deployment.save()
 
     res.statusCode = 301
-    res.setHeader('Location', memes[deployment.memeIndex])
+    res.setHeader('Location', memes[deployment.memeIndex].uri)
     res.end()
   } catch(error) {
     res.statusCode = 500

@@ -7,7 +7,7 @@ import Endpoint from '../../components/Endpoint'
 import AnchoredHeading from '../../components/AnchoredHeading'
 import Error from '../../components/Error'
 import Link from 'next/link'
-import { memes, memeNames } from '../../api/constants'
+import { memes } from '../../api/constants'
 
 export default class extends Component {
   state = {
@@ -30,9 +30,9 @@ export default class extends Component {
             Below is a list of all the memes we currently support. You can select one with <code>memeIndex</code>, see <a href='#create-a-deployment'>Create a Deployment</a>.
           </p>
           <ol start='0'>
-            {memes.map((uri, index) => (
-              <li key={uri}>
-                <a href={uri}>{memeNames[index]}</a>
+            {memes.map((meme, index) => (
+              <li key={meme.uri}>
+                <a href={meme.uri} target='_blank'>{meme.name}</a>
               </li>
             ))}
           </ol>
@@ -95,6 +95,9 @@ export default class extends Component {
             required={[
               { name: 'key', type: 'String' }
             ]}
+            optional={[
+              { name: 'memeIndex', type: 'Number' }
+            ]}
             response={`
 {
   deployments: [
@@ -121,6 +124,7 @@ export default class extends Component {
 {
   memeIndex: 0,
   memeUri: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
+  memeName: 'Rickroll',
   views: 1,
   uri: 'https://raas.pw/d/I9htyZS8N'
 }
@@ -162,6 +166,81 @@ export default class extends Component {
           />
         </section>
         <section className='container mt-5'>
+          <AnchoredHeading>Create/Update an Alias</AnchoredHeading>
+          <Endpoint
+            endpoint='/api/aliases/alias'
+            required={[
+              { name: 'key', type: 'String' },
+              { name: 'code', type: 'String' },
+              { name: 'alias', type: 'String' }
+            ]}
+            response={`
+{
+  alias: 'xxx',
+  aliasUri: 'https://raas.pw/a/xxx'
+}
+            `}
+          />
+          <p>
+            If the alias doesn't exist, it'll be created, but if it does it'll be updated with the new code.
+          </p>
+        </section>
+        <section className='container mt-5'>
+          <AnchoredHeading>List Aliases</AnchoredHeading>
+          <Endpoint
+            endpoint='/api/aliases/list'
+            required={[
+              { name: 'key', type: 'String' }
+            ]}
+            optional={[
+              { name: 'code', type: 'String' }
+            ]}
+            response={`
+{
+  [
+    {
+      alias: 'xxx',
+      code: 'I9htyZS8N'
+    }
+  ],
+  count: 1
+}
+            `}
+          />
+        </section>
+        <section className='container mt-5'>
+          <AnchoredHeading>Get Alias Info</AnchoredHeading>
+          <Endpoint
+            endpoint='/api/aliases/info'
+            required={[
+              { name: 'key', type: 'String' },
+              { name: 'alias', type: 'String' }
+            ]}
+            response={`
+{
+  code: 'I9htyZS8N',
+  aliasUri: 'https://raas.pw/a/xxx'
+}
+            `}
+          />
+        </section>
+        <section className='container mt-5'>
+          <AnchoredHeading>Delete an Alias</AnchoredHeading>
+          <Endpoint
+            endpoint='/api/aliases/delete'
+            method='DELETE'
+            required={[
+              { name: 'key', type: 'String' },
+              { name: 'alias', type: 'String' }
+            ]}
+            response={`
+{
+  code: 'I9htyZS8N'
+}
+            `}
+          />
+        </section>
+        <section className='container mt-5'>
           <AnchoredHeading>Errors</AnchoredHeading>
           <p>
             This section documents all the possible error responses you can get.
@@ -175,6 +254,10 @@ export default class extends Component {
           <Error message='Code not specified' code='400' />
           <Error message='Deployment not found' code='404' />
           <Error message='You are not the owner of that deployment' code='403' />
+          <Error message='Alias or code not specified' code='400' />
+          <Error message='Invalid alias, must match regex /.../' code='400' />
+          <Error message='You are not the owner of that alias' code='403' />
+          <Error message='Alias not specified' code='400' />
           <Error message='We messed up' code='500' />
         </section>
         <section className='container mt-5'>

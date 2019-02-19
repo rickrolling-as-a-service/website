@@ -4,6 +4,7 @@ const { hash, check } = require('./hash')
 const { memes } = require('./constants')
 const User = require('./schemas/User')
 const Deployment = require('./schemas/Deployment')
+const Alias = require('./schemas/Alias')
 
 module.exports = async (app) => {
   app.post('/api/key/get', async (req, res) => {
@@ -128,7 +129,8 @@ module.exports = async (app) => {
 
       res.json({
         memeIndex: deployment.memeIndex,
-        memeUri: memes[deployment.memeIndex],
+        memeUri: memes[deployment.memeIndex].uri,
+        memeName: memes[deployment.memeIndex].name,
         views: deployment.views,
         uri: deployment.uri
       })
@@ -141,7 +143,7 @@ module.exports = async (app) => {
 
   app.post('/api/deployments/list', async (req, res) => {
     try {
-      const { key } = req.body
+      const { key, memeIndex } = req.body
       if (!key) return res.status(401).json({
         error: 'API key not specified'
       })
@@ -151,9 +153,17 @@ module.exports = async (app) => {
         error: 'Invalid API key'
       })
 
-      const deployments = await Deployment.find({
+      const query = {
         username: existingUser.username
-      }, 'code memeIndex views -_id')
+      }
+      if (memeIndex !== undefined) {
+        if (!(memeIndex in memes)) return res.status(404).json({
+          error: 'Meme not found'
+        })
+        query.memeIndex = memeIndex
+      }
+
+      const deployments = await Deployment.find(query, 'code memeIndex views -_id')
       res.json({
         count: deployments.length,
         deployments
@@ -230,6 +240,184 @@ module.exports = async (app) => {
       await deployment.remove()
       res.json({
         finalViews: deployment.views
+      })
+    } catch(error) {
+      res.status(500).json({
+        error: 'We messed up'
+      })
+    }
+  })
+
+  app.post('/api/aliases/alias', async (req, res) => {
+    try {
+      const { key, code, alias } = req.body
+      if (!key) return res.status(401).json({
+        error: 'API key not specified'
+      })
+      if (!alias || !code) return res.status(400).json({
+        error: 'Alias or code not specified'
+      })
+
+      const aliasRegex = /^[a-z0-9]+(?:-[a-z0-9]+)*$/
+      if (!alias.match(aliasRegex)) {
+        return res.status(400).json({
+          error: `Invalid alias, must match regex ${aliasRegex.toString()}`
+        })
+      }
+
+      const existingUser = await User.findOne({ key })
+      if (!existingUser) return res.status(401).json({
+        error: 'Invalid API key'
+      })
+
+      const deployment = await Deployment.findOne({ code })
+      if (!deployment) return res.status(404).json({
+        error: 'Deployment not found'
+      })
+      if (deployment.username !== existingUser.username) {
+        return res.status(403).json({
+          error: 'You are not the owner of that deployment'
+        })
+      }
+
+      const existingAlias = await Alias.findOne({ alias })
+      if (existingAlias) {
+        if (existingAlias.username !== existingUser.username) {
+          return res.status(403).json({
+            error: 'You are not the owner of that alias'
+          })
+        }
+        existingAlias.code = code
+        await existingAlias.save()
+        return res.json({
+          aliasUri: `https://raas.pw/a/${existingAlias.alias}`,
+          alias: existingAlias.alias
+        })
+      } else {
+        await new Alias({
+          username: existingUser.username,
+          code,
+          alias
+        }).save()
+        return res.json({
+          aliasUri: `https://raas.pw/a/${alias}`,
+          alias
+        })
+      }
+    } catch(error) {
+      res.status(500).json({
+        error: 'We messed up'
+      })
+    }
+  })
+
+  app.post('/api/aliases/info', async (req, res) => {
+    try {
+      const { key, alias } = req.body
+      if (!key) return res.status(401).json({
+        error: 'API key not specified'
+      })
+      if (!alias) return res.status(400).json({
+        error: 'Alias not specified'
+      })
+
+      const aliasRegex = /^[a-z0-9]+(?:-[a-z0-9]+)*$/
+      if (!alias.match(aliasRegex)) {
+        return res.status(400).json({
+          error: `Invalid alias, must match regex ${aliasRegex.toString()}`
+        })
+      }
+
+      const existingUser = await User.findOne({ key })
+      if (!existingUser) return res.status(401).json({
+        error: 'Invalid API key'
+      })
+
+      const existingAlias = await Alias.findOne({ alias })
+      if (!existingAlias) return res.status(404).json({
+        error: 'Alias not found'
+      })
+      if (existingAlias.username !== existingUser.username) {
+        return res.status(403).json({
+          error: 'You are not the owner of that alias'
+        })
+      }
+
+      res.json({
+        code: existingAlias.code,
+        aliasUri: `https://raas.pw/a/${alias}`
+      })
+    } catch(error) {
+      res.status(500).json({
+        error: 'We messed up'
+      })
+    }
+  })
+
+  app.delete('/api/aliases/delete', async (req, res) => {
+    try {
+      const { key, alias } = req.body
+      if (!key) return res.status(401).json({
+        error: 'API key not specified'
+      })
+      if (!alias) return res.status(400).json({
+        error: 'Alias not specified'
+      })
+
+      const aliasRegex = /^[a-z0-9]+(?:-[a-z0-9]+)*$/
+      if (!alias.match(aliasRegex)) {
+        return res.status(400).json({
+          error: `Invalid alias, must match regex ${aliasRegex.toString()}`
+        })
+      }
+
+      const existingUser = await User.findOne({ key })
+      if (!existingUser) return res.status(401).json({
+        error: 'Invalid API key'
+      })
+
+      const existingAlias = await Alias.findOne({ alias })
+      if (!existingAlias) return res.status(404).json({
+        error: 'Alias not found'
+      })
+      if (existingAlias.username !== existingUser.username) {
+        return res.status(403).json({
+          error: 'You are not the owner of that alias'
+        })
+      }
+
+      await existingAlias.remove()
+      res.json({
+        code: existingAlias.code
+      })
+    } catch(error) {
+      res.status(500).json({
+        error: 'We messed up'
+      })
+    }
+  })
+
+  app.post('/api/aliases/list', async (req, res) => {
+    try {
+      const { key, code } = req.body
+      if (!key) return res.status(401).json({
+        error: 'API key not specified'
+      })
+
+      const existingUser = await User.findOne({ key })
+      if (!existingUser) return res.status(401).json({
+        error: 'Invalid API key'
+      })
+
+      const query = {
+        username: existingUser.username
+      }
+      if (code) query.code = code
+
+      const aliases = await Alias.find(query, 'alias code -_id')
+      res.json({
+        count: aliases.length,
+        aliases
       })
     } catch(error) {
       res.status(500).json({

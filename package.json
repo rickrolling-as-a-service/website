@@ -4,7 +4,7 @@
 	"scripts": {
 		"start": "next start",
 		"build": "next build",
-		"dev": "next dev",
+		"dev": "next",
 		"dev:api": "nodemon api.js",
 		"lint": "eslint .",
 		"lint:fix": "eslint --fix .",
