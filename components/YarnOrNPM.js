@@ -9,13 +9,13 @@ export default ({ onChange }) => {
       </p>
       <div className='btn-group'>
         <button
-          className={`btn btn${pm === 'yarn' ? '' : '-outline'}-primary btn-sm`}
+          className={`btn btn-outline-primary btn-sm ${pm === 'yarn' && 'active'}`}
           onClick={() => { setPm('yarn'); onChange('yarn') }}
         >
           Yarn
         </button>
         <button
-          className={`btn btn${pm === 'npm' ? '' : '-outline'}-primary btn-sm`}
+          className={`btn btn-outline-primary btn-sm ${pm === 'npm' && 'active'}`}
           onClick={() => { setPm('npm'); onChange('npm') }}
         >
           NPM

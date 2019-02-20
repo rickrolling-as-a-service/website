@@ -43,7 +43,7 @@ export default class extends Component {
               </Card>
             </div>
             <div className='col-sm-6 col-md-4'>
-              <Card name='NodeJS client'>
+              <Card name='NodeJS client' href='/docs/node'>
                 Documentation on our NodeJS client, for easy API usage. This is perfect for automating deployments.
               </Card>
             </div>

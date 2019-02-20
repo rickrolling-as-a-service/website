@@ -23,6 +23,9 @@ export default class extends Component {
           <p className='lead mt-3'>
             A full reference of how to interact with our API correctly. If you're new, we recommend reading the quick start guide first.
           </p>
+          <p>
+            If you're interacting with our API using Node.js, we recommend our <Link href='/docs/node'>Node.js client</Link>.
+          </p>
         </section>
         <section className='container mt-5'>
           <AnchoredHeading>Supported Memes</AnchoredHeading>
@@ -134,7 +137,7 @@ export default class extends Component {
         <section className='container mt-5'>
           <AnchoredHeading>View a Deployment</AnchoredHeading>
           <div className='alert alert-warning'>
-            <strong>Warning!</strong> Note that a deployment's view count is automatically incremented every time it's viewed.
+            <strong>Warning!</strong> Note that a deployment's view count is automatically incremented every time it's visited.
           </div>
           <Endpoint
             endpoint='/api/deployments/view'
@@ -268,11 +271,5 @@ export default class extends Component {
         <Footer />
       </>
     )
-  }
-
-  changePackageManager = (pm) => {
-    this.setState({
-      yarn: pm === 'yarn'
-    })
   }
 }

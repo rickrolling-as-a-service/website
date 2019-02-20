@@ -54,6 +54,7 @@
 		"node-sass": "^4.11.0",
 		"react": "^16.8.2",
 		"react-dom": "^16.8.2",
+		"react-runkit": "^0.9.0",
 		"shortid": "^2.2.14",
 		"uuid": "^3.3.2",
 		"webpack": "^4.29.4"

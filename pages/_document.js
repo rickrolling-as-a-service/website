@@ -6,6 +6,7 @@ export default class extends Document {
       <html lang='en'>
         <Head>
           <meta name='viewport' content='width=device-width, initial-scale=1' />
+          <script src='https://embed.runkit.com'></script>
         </Head>
         <body>
           <Main />
