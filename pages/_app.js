@@ -1,4 +1,6 @@
 import App, { Container } from 'next/app'
+import NextSeo, { LogoJsonLd } from 'next-seo'
+import seo from '../lib/seo'
 
 export default class extends App {
   static async getInitialProps({ Component, ctx }) {
@@ -13,6 +15,8 @@ export default class extends App {
     const { Component, pageProps } = this.props
     return (
       <Container>
+        <NextSeo config={seo} />
+        <LogoJsonLd logo='https://raas.now.sh/static/images/logo-dark.png' url='https://raas.now.sh/' />
         <Component {...pageProps} />
       </Container>
     )

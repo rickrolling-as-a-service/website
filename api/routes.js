@@ -93,7 +93,7 @@ module.exports = async (app) => {
       }).save()
       res.json({
         code,
-        uri: `https://raas.pw/r/${code}`
+        uri: `https://raas.now.sh/r/${code}`
       })
     } catch(error) {
       res.status(500).json({
@@ -290,7 +290,7 @@ module.exports = async (app) => {
         existingAlias.code = code
         await existingAlias.save()
         return res.json({
-          aliasUri: `https://raas.pw/a/${existingAlias.alias}`,
+          aliasUri: `https://raas.now.sh/a/${existingAlias.alias}`,
           alias: existingAlias.alias
         })
       } else {
@@ -300,7 +300,7 @@ module.exports = async (app) => {
           alias
         }).save()
         return res.json({
-          aliasUri: `https://raas.pw/a/${alias}`,
+          aliasUri: `https://raas.now.sh/a/${alias}`,
           alias
         })
       }
@@ -345,7 +345,7 @@ module.exports = async (app) => {
 
       res.json({
         code: existingAlias.code,
-        aliasUri: `https://raas.pw/a/${alias}`
+        aliasUri: `https://raas.now.sh/a/${alias}`
       })
     } catch(error) {
       res.status(500).json({

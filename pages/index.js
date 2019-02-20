@@ -7,11 +7,20 @@ import Cover from '../components/Cover'
 import Footer from '../components/Footer'
 import Navbar from '../components/Navbar'
 import Link from 'next/link'
+import NextSeo from 'next-seo'
 
 export default class extends Component {
   render() {
     return (
       <>
+        <NextSeo config={{
+          title: 'Home',
+          canonical: 'https://raas.now.sh/',
+          openGraph: {
+            title: 'Home',
+            url: 'https://raas.now.sh/'
+          }
+        }} />
         <Navbar absolute dark />
         <Cover
           heading='RaaS'
@@ -58,7 +67,7 @@ RaaS Version 1.0.0
 > Assigning code I9htyZS8N
 > Creating deployment...
 > Done!
-Your deployment is at https://raas.pw/r/I9htyZS8N
+Your deployment is at https://raas.now.sh/r/I9htyZS8N
               `} />
             </div>
           </div>
@@ -71,7 +80,7 @@ Your deployment is at https://raas.pw/r/I9htyZS8N
           <div className='row mt-4'>
             <div className='col-lg-4 offset-lg-2 col-md-6'>
               <Code code={`
-fetch('https://raas.pw/api/deploy', {
+fetch('https://raas.now.sh/api/deploy', {
   method: 'POST',
   body: JSON.stringify({
     key: 'xxx',
@@ -85,7 +94,7 @@ fetch('https://raas.pw/api/deploy', {
               <Code code={`
 {
   code: 'I9htyZS8N',
-  uri: 'https://raas.pw/d/I9htyZS8N'
+  uri: 'https://raas.now.sh/d/I9htyZS8N'
 }
               `} />
             </div>

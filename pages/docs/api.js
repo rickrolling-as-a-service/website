@@ -8,6 +8,7 @@ import AnchoredHeading from '../../components/AnchoredHeading'
 import Error from '../../components/Error'
 import Link from 'next/link'
 import { memes } from '../../api/constants'
+import NextSeo from 'next-seo'
 
 export default class extends Component {
   state = {
@@ -17,6 +18,14 @@ export default class extends Component {
   render() {
     return (
       <>
+        <NextSeo config={{
+          title: 'API Reference',
+          canonical: 'https://raas.now.sh/docs/api',
+          openGraph: {
+            title: 'API Reference',
+            url: 'https://raas.now.sh/docs/api'
+          }
+        }} />
         <Navbar />
         <section className='container mt-5'>
           <h1 className='display-4'>API Reference</h1>
@@ -86,7 +95,7 @@ export default class extends Component {
             response={`
 {
   code: 'I9htyZS8N',
-  uri: 'https://raas.pw/d/I9htyZS8N'
+  uri: 'https://raas.now.sh/d/I9htyZS8N'
 }
             `}
           />
@@ -129,7 +138,7 @@ export default class extends Component {
   memeUri: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
   memeName: 'Rickroll',
   views: 1,
-  uri: 'https://raas.pw/d/I9htyZS8N'
+  uri: 'https://raas.now.sh/d/I9htyZS8N'
 }
             `}
           />
@@ -180,7 +189,7 @@ export default class extends Component {
             response={`
 {
   alias: 'xxx',
-  aliasUri: 'https://raas.pw/a/xxx'
+  aliasUri: 'https://raas.now.sh/a/xxx'
 }
             `}
           />
@@ -222,7 +231,7 @@ export default class extends Component {
             response={`
 {
   code: 'I9htyZS8N',
-  aliasUri: 'https://raas.pw/a/xxx'
+  aliasUri: 'https://raas.now.sh/a/xxx'
 }
             `}
           />

@@ -7,6 +7,7 @@ import YarnOrNPM from '../../components/YarnOrNPM'
 import Code from '../../components/Code'
 import Link from 'next/link'
 import AnchoredHeading from '../../components/AnchoredHeading'
+import NextSeo from 'next-seo'
 
 export default class extends Component {
   state = {
@@ -18,6 +19,14 @@ export default class extends Component {
 
     return (
       <>
+        <NextSeo config={{
+          title: 'Quick Start',
+          canonical: 'https://raas.now.sh/docs/start',
+          openGraph: {
+            title: 'Quick Start',
+            url: 'https://raas.now.sh/docs/start'
+          }
+        }} />
         <Navbar />
         <section className='container mt-5'>
           <h1 className='display-4'>Quick Start</h1>
@@ -48,7 +57,7 @@ RaaS Version 1.0.0
 > Assigning code I9htyZS8N
 > Creating deployment...
 > Done!
-Your deployment is at https://raas.pw/r/I9htyZS8N
+Your deployment is at https://raas.now.sh/r/I9htyZS8N
           `} />
           <p>
             Click on the link and you should be rickrolled! Of course, your code will be different.
@@ -68,7 +77,7 @@ RaaS Version 1.0.0
 > Deployment code is: I9htyZS8N
 > Aliasing to <ALIAS>...
 > Done!
-Your deployment is now aliased to https://raas.pw/a/<ALIAS>
+Your deployment is now aliased to https://raas.now.sh/a/<ALIAS>
           `} />
           <p>
             By default, RaaS will alias your latest deployment. If you want to alias a specific deployment, just specify the code like the example below.
@@ -79,7 +88,7 @@ RaaS Version 1.0.0
 > Deployment code is: <CODE>
 > Aliasing to <ALIAS>...
 > Done!
-Your deployment is now aliased to https://raas.pw/a/<ALIAS>
+Your deployment is now aliased to https://raas.now.sh/a/<ALIAS>
           `} />
         </section>
         <section className='container mt-5'>

@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import Link from './Link'
+import '../styles/brand.scss'
 
 export default ({ absolute, dark }) => {
   const [ toggled, toggle ] = useState(false)
@@ -7,7 +8,13 @@ export default ({ absolute, dark }) => {
     <nav className={`navbar navbar-expand-sm navbar-${dark ? 'dark' : 'light'} ${absolute && 'navbar-absolute'}`}>
       <div className='container'>
         <Link href='/'>
-          <a className='navbar-brand'>RaaS</a>
+          <a className='navbar-brand'>
+            <img
+              src='/static/images/logo-transparent.png'
+              className='brand-logo'
+            />
+            RaaS
+          </a>
         </Link>
         <button className={`navbar-toggler ${toggled ? '' : 'collapsed'}`} onClick={() => toggle(!toggled)}>
           <span className='navbar-toggler-icon'></span>

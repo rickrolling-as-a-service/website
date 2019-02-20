@@ -8,6 +8,7 @@ import Code from '../../components/Code'
 import Link from 'next/link'
 import AnchoredHeading from '../../components/AnchoredHeading'
 import RunkitEmbed from 'react-runkit'
+import NextSeo from 'next-seo'
 
 export default class extends Component {
   state = {
@@ -19,6 +20,14 @@ export default class extends Component {
 
     return (
       <>
+        <NextSeo config={{
+          title: 'Node.js Client',
+          canonical: 'https://raas.now.sh/docs/node',
+          openGraph: {
+            title: 'Node.js Client',
+            url: 'https://raas.now.sh/docs/node'
+          }
+        }} />
         <Navbar />
         <section className='container mt-5'>
           <h1 className='display-4'>Node.js Client</h1>

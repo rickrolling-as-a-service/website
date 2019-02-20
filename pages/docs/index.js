@@ -5,11 +5,20 @@ import Footer from '../../components/Footer'
 import Navbar from '../../components/Navbar'
 import Card from '../../components/Card'
 import Link from 'next/link'
+import NextSeo from 'next-seo'
 
 export default class extends Component {
   render() {
     return (
       <>
+        <NextSeo config={{
+          title: 'Docs',
+          canonical: 'https://raas.now.sh/docs/',
+          openGraph: {
+            title: 'Docs',
+            url: 'https://raas.now.sh/docs/'
+          }
+        }} />
         <Navbar />
         <section className='container mt-5'>
           <h1 className='display-4'>Documentation Center</h1>
