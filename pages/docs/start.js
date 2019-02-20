@@ -20,7 +20,7 @@ export default class extends Component {
       <>
         <Navbar />
         <section className='container mt-5'>
-          <h1 className='display-4'>Quick Start Guide</h1>
+          <h1 className='display-4'>Quick Start</h1>
           <p className='lead mt-3'>
             A short guide to getting started with RaaS as fast as possible. Read through this first if you're new.
           </p>

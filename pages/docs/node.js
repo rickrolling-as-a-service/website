@@ -23,7 +23,7 @@ export default class extends Component {
         <section className='container mt-5'>
           <h1 className='display-4'>Node.js Client</h1>
           <p className='lead mt-3'>
-            Documentation on our Node.js client, for easy API usage. This is perfect for automating deployments.
+            Documentation on our Node.js client, for easy API usage. Perfect for automating deployments.
           </p>
         </section>
         <section className='container mt-5'>
