@@ -188,8 +188,7 @@ export default class extends Component {
             ]}
             response={`
 {
-  alias: 'xxx',
-  aliasUri: 'https://raas.now.sh/a/xxx'
+  uri: 'https://raas.now.sh/a/xxx'
 }
             `}
           />
@@ -231,7 +230,7 @@ export default class extends Component {
             response={`
 {
   code: 'I9htyZS8N',
-  aliasUri: 'https://raas.now.sh/a/xxx'
+  uri: 'https://raas.now.sh/a/xxx'
 }
             `}
           />

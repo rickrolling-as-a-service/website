@@ -344,7 +344,7 @@ module.exports = async (app) => {
 
       res.json({
         code: existingAlias.code,
-        aliasUri: `https://raas.now.sh/a/${alias}`
+        uri: `https://raas.now.sh/a/${alias}`
       })
     } catch(error) {
       res.status(500).json({
