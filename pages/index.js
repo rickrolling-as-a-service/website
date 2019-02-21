@@ -59,16 +59,20 @@ export default class extends Component {
           </p>
           <div className='row mt-4'>
             <div className='col-md-6 offset-md-3'>
-              <Code code={`
-$ yarn global add @raas/cli
-$ raas
-RaaS Version 1.0.0
-> Meme index is 0: rickroll
-> Assigning code I9htyZS8N
-> Creating deployment...
-> Done!
-Your deployment is at https://raas.now.sh/d/I9htyZS8N
-              `} />
+            <Code jsxCode={(
+              <div>
+                $ yarn global add raas-cli<br />
+                $ raas<br />
+                <b>RaaS CLI v1.0.0</b><br />
+                <span className='text-muted'>></span> Meme index is 0<br />
+                <span className='text-muted'>></span> Code is IOcH3vyLL<br />
+                <span className='text-success'>SUCCESS</span> <span className='text-muted'>
+                  Deployment available at <a href='https://raas.now.sh/d/IOcH3vyLL' className='text-muted' target='_blank'>
+                    https://raas.now.sh/d/IOcH3vyLL
+                  </a>
+                </span>
+              </div>
+            )} />
             </div>
           </div>
         </section>
