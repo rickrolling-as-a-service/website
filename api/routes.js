@@ -300,8 +300,7 @@ module.exports = async (app) => {
           alias
         }).save()
         return res.json({
-          aliasUri: `https://raas.now.sh/a/${alias}`,
-          alias
+          uri: `https://raas.now.sh/a/${alias}`
         })
       }
     } catch(error) {
