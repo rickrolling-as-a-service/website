@@ -43,7 +43,11 @@ export default class extends Component {
             First, you'll have to download our command line interface. This is what you'll use to quickly create deployments.
           </p>
           <YarnOrNPM onChange={this.changePackageManager} />
-          <Code className='mt-4' code={yarn ? '$ yarn global add @raas/cli' : '$ npm install -g @raas/cli'} />
+          <Code className='mt-3' code={yarn ? '$ yarn global add raas-cli' : '$ npm install -g raas-cli'} />
+          <p>
+            Now you're going to have to log in. Don't worry about creating an account, this will be done automatically if you don't have one.
+          </p>
+          <Code code='$ raas login' />
         </section>
         <section className='container mt-5'>
           <AnchoredHeading>Create a Deployment</AnchoredHeading>
@@ -52,12 +56,10 @@ export default class extends Component {
           </p>
           <Code code={`
 $ raas
-RaaS Version 1.0.0
-> Meme index is 0: rickroll
-> Assigning code I9htyZS8N
-> Creating deployment...
-> Done!
-Your deployment is at https://raas.now.sh/d/I9htyZS8N
+RaaS CLI v1.0.0
+> Meme index is 0
+> Code is IOcH3vyLL
+SUCCESS Deployment available at https://raas.now.sh/d/IOcH3vyLL
           `} />
           <p>
             Click on the link and you should be rickrolled! Of course, your code will be different.
@@ -73,22 +75,20 @@ Your deployment is at https://raas.now.sh/d/I9htyZS8N
           </p>
           <Code code={`
 $ raas alias <ALIAS>
-RaaS Version 1.0.0
-> Deployment code is: I9htyZS8N
-> Aliasing to <ALIAS>...
-> Done!
-Your deployment is now aliased to https://raas.now.sh/a/<ALIAS>
+RaaS CLI v1.0.0
+> Code is IOcH3vyLL
+> Alias is <ALIAS>
+SUCCESS Alias available at https://raas.now.sh/a/<ALIAS>
           `} />
           <p>
-            By default, RaaS will alias your latest deployment. If you want to alias a specific deployment, just specify the code like the example below.
+            By default, RaaS will alias your latest deployment. If you want to alias a specific deployment, just specify the code like in the example below.
           </p>
           <Code code={`
 $ raas alias <CODE> <ALIAS>
-RaaS Version 1.0.0
-> Deployment code is: <CODE>
-> Aliasing to <ALIAS>...
-> Done!
-Your deployment is now aliased to https://raas.now.sh/a/<ALIAS>
+RaaS CLI v1.0.0
+> Code is <CODE>
+> Alias is <ALIAS>
+SUCCESS Alias available at https://raas.now.sh/a/<ALIAS>
           `} />
         </section>
         <section className='container mt-5'>
