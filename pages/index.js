@@ -67,7 +67,7 @@ RaaS Version 1.0.0
 > Assigning code I9htyZS8N
 > Creating deployment...
 > Done!
-Your deployment is at https://raas.now.sh/r/I9htyZS8N
+Your deployment is at https://raas.now.sh/d/I9htyZS8N
               `} />
             </div>
           </div>
@@ -100,9 +100,11 @@ fetch('https://raas.now.sh/api/deploy', {
             </div>
           </div>
           <div className='btn-group'>
-            <a href='#' className='btn btn-secondary'>Open the API Explorer</a>
+          <Link href='/docs/api'>
+              <a className='btn btn-secondary'>Use our Node.js client</a>
+            </Link>
             <Link href='/docs/api'>
-              <a className='btn btn-outline-primary'>Read the Docs</a>
+              <a className='btn btn-outline-primary'>Use our Node.js client</a>
             </Link>
           </div>
         </section>

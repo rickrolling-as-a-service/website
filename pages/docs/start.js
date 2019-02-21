@@ -57,7 +57,7 @@ RaaS Version 1.0.0
 > Assigning code I9htyZS8N
 > Creating deployment...
 > Done!
-Your deployment is at https://raas.now.sh/r/I9htyZS8N
+Your deployment is at https://raas.now.sh/d/I9htyZS8N
           `} />
           <p>
             Click on the link and you should be rickrolled! Of course, your code will be different.

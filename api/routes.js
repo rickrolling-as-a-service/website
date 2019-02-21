@@ -93,7 +93,7 @@ module.exports = async (app) => {
       }).save()
       res.json({
         code,
-        uri: `https://raas.now.sh/r/${code}`
+        uri: `https://raas.now.sh/d/${code}`
       })
     } catch(error) {
       res.status(500).json({
