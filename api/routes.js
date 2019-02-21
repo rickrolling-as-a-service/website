@@ -290,7 +290,7 @@ module.exports = async (app) => {
         existingAlias.code = code
         await existingAlias.save()
         return res.json({
-          aliasUri: `https://raas.now.sh/a/${existingAlias.alias}`,
+          uri: `https://raas.now.sh/a/${existingAlias.alias}`,
           alias: existingAlias.alias
         })
       } else {
