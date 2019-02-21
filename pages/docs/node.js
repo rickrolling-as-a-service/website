@@ -174,6 +174,7 @@ raas.key.set(await raas.key.get('test', 'test'))
 const deployments = await raas.deployments.list()
 const code = deployments[0].code
 
+// Returns final view count
 console.log(await raas.deployments.delete(code))
             `.trim()}
           />

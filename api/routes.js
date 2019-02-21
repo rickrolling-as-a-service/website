@@ -132,7 +132,7 @@ module.exports = async (app) => {
         memeUri: memes[deployment.memeIndex].uri,
         memeName: memes[deployment.memeIndex].name,
         views: deployment.views,
-        uri: deployment.uri
+        uri: `https://raas.now.sh/d/${code}`
       })
     } catch(error) {
       res.status(500).json({
