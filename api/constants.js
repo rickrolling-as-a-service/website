@@ -46,5 +46,25 @@ module.exports.memes = [
   {
     uri: 'https://www.youtube.com/watch?v=feA64wXhbjo',
     name: 'Shooting Stars'
+  },
+  {
+    uri: 'https://www.youtube.com/watch?v=Xm_dS-wEFvs',
+    name: 'Wow'
+  },
+  {
+    uri: 'https://www.youtube.com/watch?v=XKqYOP2DmJk&feature=youtu.be',
+    name: 'Fortnite Dance'
+  },
+  {
+    uri: 'https://www.youtube.com/watch?v=TOJbGLBZLxs&feature=youtu.be',
+    name: 'Stoopid'
+  },
+  {
+    uri: 'https://www.youtube.com/watch?v=LO1Z8HOGeWo',
+    name: 'FBI Open Up'
+  },
+  {
+    uri: 'https://www.youtube.com/watch?v=7fFSupGfZME',
+    name: 'Oh Yeah Yeah'
   }
 ]
