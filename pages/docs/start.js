@@ -54,13 +54,19 @@ export default class extends Component {
           <p>
             Now you're going to create your first deployment. It's going to be a simple rickroll.
           </p>
-          <Code code={`
-$ raas
-RaaS CLI v1.0.0
-> Meme index is 0
-> Code is IOcH3vyLL
-SUCCESS Deployment available at https://raas.now.sh/d/IOcH3vyLL
-          `} />
+          <Code jsxCode={(
+            <div>
+              $ raas<br />
+              <b>RaaS CLI v1.0.0</b><br />
+              <span className='text-muted'>></span> Meme index is 0<br />
+              <span className='text-muted'>></span> Code is IOcH3vyLL<br />
+              <span className='text-success'>SUCCESS</span> <span className='text-muted'>
+                Deployment available at <a href='https://raas.now.sh/d/IOcH3vyLL' className='text-muted' target='_blank'>
+                  https://raas.now.sh/d/IOcH3vyLL
+                </a>
+              </span>
+            </div>
+          )} />
           <p>
             Click on the link and you should be rickrolled! Of course, your code will be different.
           </p>
@@ -73,23 +79,35 @@ SUCCESS Deployment available at https://raas.now.sh/d/IOcH3vyLL
           <p>
             Make sure to choose an alias that nobody else has taken!
           </p>
-          <Code code={`
-$ raas alias <ALIAS>
-RaaS CLI v1.0.0
-> Code is IOcH3vyLL
-> Alias is <ALIAS>
-SUCCESS Alias available at https://raas.now.sh/a/<ALIAS>
-          `} />
+          <Code jsxCode={(
+            <div>
+              $ raas alias rickroll<br />
+              <b>RaaS CLI v1.0.0</b><br />
+              <span className='text-muted'>></span> Code is IOcH3vyLL<br />
+              <span className='text-muted'>></span> Alias is rickroll<br />
+              <span className='text-success'>SUCCESS</span> <span className='text-muted'>
+                Alias available at <a href='https://raas.now.sh/a/rickroll' className='text-muted' target='_blank'>
+                  https://raas.now.sh/a/rickroll
+                </a>
+              </span>
+            </div>
+          )} />
           <p>
             By default, RaaS will alias your latest deployment. If you want to alias a specific deployment, just specify the code like in the example below.
           </p>
-          <Code code={`
-$ raas alias <CODE> <ALIAS>
-RaaS CLI v1.0.0
-> Code is <CODE>
-> Alias is <ALIAS>
-SUCCESS Alias available at https://raas.now.sh/a/<ALIAS>
-          `} />
+          <Code jsxCode={(
+            <div>
+              $ raas alias IOcH3vyLL rickroll<br />
+              <b>RaaS CLI v1.0.0</b><br />
+              <span className='text-muted'>></span> Code is IOcH3vyLL<br />
+              <span className='text-muted'>></span> Alias is rickroll<br />
+              <span className='text-success'>SUCCESS</span> <span className='text-muted'>
+                Alias available at <a href='https://raas.now.sh/a/rickroll' className='text-muted' target='_blank'>
+                  https://raas.now.sh/a/rickroll
+                </a>
+              </span>
+            </div>
+          )} />
         </section>
         <section className='container mt-5'>
           <Link href='/docs'>

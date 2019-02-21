@@ -1,5 +1,5 @@
-export default ({ code, className }) => (
+export default ({ code, jsxCode, className }) => (
   <pre className={`text-left styled-code ${className ? className : ''}`}>
-    <code>{code.trim()}</code>
+    <code>{jsxCode || code.trim()}</code>
   </pre>
 )
